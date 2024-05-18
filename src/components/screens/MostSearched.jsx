@@ -80,7 +80,7 @@ const Content = styled.div`
 const Title = styled.div`
     font-size: 13px;
     color: #0a090e;
-    font-family: "public_sans";
+    font-family: "public_sans_extra_light";
     font-weight: 300;
     text-transform: capitalize;
     margin-bottom: 6px;

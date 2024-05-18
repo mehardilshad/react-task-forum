@@ -5,6 +5,7 @@ import Spotlight from "./Spotlight";
 import Avatars from "./Avatars";
 import MostSearched from "./MostSearched";
 import AvatarBubbles from "./AvatarBubbles";
+import LatestDiscussions from "./LatestDiscussions";
 function LandingPage() {
     return (
         <Container>
@@ -13,6 +14,7 @@ function LandingPage() {
             <Avatars />
             <MostSearched />
             <AvatarBubbles />
+            <LatestDiscussions />
         </Container>
     );
 }

@@ -52,14 +52,39 @@ button {
     src: url(./assets/fonts/PublicSans-Medium.woff) format("woff");
 }
 @font-face {
+    font-family: "public_sans_extra_light";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/fonts/PublicSans-ExtraLight.woff) format("woff");
+}
+@font-face {
+    font-family: "public_sans_light";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/fonts/PublicSans-Light.woff) format("woff");
+}
+
+@font-face {
     font-family: "georgia";
     font-style: normal;
     font-weight: 400;
     src: url(./assets/fonts/Georgia.woff) format("woff");
 }
 @font-face {
+    font-family: "georgia_light";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/fonts/Georgia-light.woff) format("woff");
+}
+@font-face {
     font-family: "georgia_italic";
     font-style: normal;
     font-weight: 400;
     src: url(./assets/fonts/Georgia-Italic.woff) format("woff");
+}
+@font-face {
+    font-family: "georgia_light_italic";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/fonts/Georgial-iight-Italic.woff) format("woff");
 }

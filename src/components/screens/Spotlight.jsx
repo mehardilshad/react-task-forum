@@ -66,7 +66,7 @@ const TopTitle = styled.p`
 const Title = styled.h3`
     font-size: 13px;
     color: #0a090e;
-    font-family: "public_sans";
+    font-family: "public_sans_extra_light";
     font-weight: 300;
     text-transform: capitalize;
     margin-bottom: 5px;
