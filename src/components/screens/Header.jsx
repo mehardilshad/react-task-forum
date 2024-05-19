@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/images/logo.svg";
@@ -7,18 +7,20 @@ import search from "../../assets/images/search.svg";
 import hamburger from "../../assets/images/hamburger.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HamburgerMenu from "./HamburgerMenu";
 
 function Header() {
+    const [isMenu, setMenu] = useState(false);
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Animation duration
-            once: true, // Only animate once
+            duration: 1000,
+            once: true,
         });
     }, []);
     return (
         <Cover>
             <Container className="wrapper">
-                <LeftConatiner data-aos="fade-down">
+                <LeftConatiner to={"/"} data-aos="fade-down">
                     <LogoDiv>
                         <Logo src={logo} alt="logo" />
                     </LogoDiv>
@@ -57,13 +59,19 @@ function Header() {
                         <JoinButton>Join Program</JoinButton>
                     </ButtonContainer>
                 </RightConatiner>
-                <Hamburger>
+                <Hamburger
+                    onClick={() => {
+                        setMenu(!isMenu);
+                    }}
+                    data-aos="fade-down"
+                >
                     <HamburgerContainer>
                         <Icon src={hamburger} />
                     </HamburgerContainer>
                     Menu
                 </Hamburger>
             </Container>
+            {isMenu && <HamburgerMenu setMenu={setMenu} />}
         </Cover>
     );
 }
@@ -78,7 +86,9 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 `;
-const LeftConatiner = styled.div``;
+const LeftConatiner = styled(Link)`
+    cursor: pointer;
+`;
 const LogoDiv = styled.div`
     width: 40px;
 `;
@@ -86,7 +96,7 @@ const Logo = styled.img``;
 const NavContainer = styled.div`
     display: flex;
     gap: 14px;
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 860px) {
         display: none;
     }
 `;
@@ -108,7 +118,7 @@ const Dot = styled.img``;
 const RightConatiner = styled.div`
     display: flex;
     align-items: center;
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 860px) {
         display: none;
     }
 `;
@@ -152,7 +162,9 @@ const Hamburger = styled.div`
     color: #fff;
     gap: 12px;
     display: none;
-    @media all and (max-width: 768px) {
+    cursor: pointer;
+
+    @media all and (max-width: 860px) {
         display: flex;
     }
 `;

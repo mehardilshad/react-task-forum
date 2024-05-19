@@ -235,6 +235,7 @@ const Input = styled.input`
     font-size: 16px;
     color: #000;
     padding-left: 10px;
+    width: 90%;
 `;
 
 const SearchIcon = styled.div`

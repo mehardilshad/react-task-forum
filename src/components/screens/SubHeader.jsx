@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/images/logo.svg";
-import dot from "../../assets/images/dot.svg";
 import search from "../../assets/images/search.svg";
 import hamburger from "../../assets/images/hamburger.svg";
 import chat from "../../assets/images/chat-black.svg";
-import gradient from "../../assets/images/gradient.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HamburgerMenu from "./HamburgerMenu";
 
 function SubHeader() {
+    const [isMenu, setMenu] = useState(false);
     useEffect(() => {
         AOS.init({
             duration: 1000, // Animation duration
@@ -19,15 +19,19 @@ function SubHeader() {
         });
     }, []);
     return (
-        <Cover>
+        <Cover data-aos="fade-down">
             <Container>
-                <LeftConatiner data-aos="fade-down">
+                <LeftConatiner>
                     <LogoDiv>
                         <Logo src={logo} alt="logo" />
                     </LogoDiv>
                 </LeftConatiner>
                 <CenterContainer>
-                    <Hamburger>
+                    <Hamburger
+                        onClick={() => {
+                            setMenu(!isMenu);
+                        }}
+                    >
                         <HamburgerContainer>
                             <Icon src={hamburger} />
                         </HamburgerContainer>
@@ -43,7 +47,7 @@ function SubHeader() {
                     </GradientContainer>
                 </CenterContainer>
 
-                <RightConatiner data-aos="fade-down">
+                <RightConatiner>
                     <SearchContainer>
                         <SearchIcon>
                             <Icon src={search} alt="search" />
@@ -55,6 +59,7 @@ function SubHeader() {
                     </ButtonContainer>
                 </RightConatiner>
             </Container>
+            {/* {isMenu && <HamburgerMenu setMenu={setMenu} />} */}
         </Cover>
     );
 }
@@ -73,6 +78,9 @@ const Cover = styled.div`
     right: 0;
     background-color: #fff;
     z-index: 999999999;
+    @media all and (max-width: 340px) {
+        width: 85%;
+    }
 `;
 const Container = styled.div`
     display: flex;
@@ -92,7 +100,7 @@ const CenterContainer = styled.div`
 const RightConatiner = styled.div`
     display: flex;
     align-items: center;
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 860px) {
         display: none;
     }
 `;
@@ -130,6 +138,7 @@ const GradientContainer = styled.div`
     background: linear-gradient(to right, #0779e6, #f2265c);
     padding: 3px;
     border-radius: 30px;
+    cursor: pointer;
 `;
 const Hamburger = styled.div`
     padding: 12px 16px;
@@ -140,6 +149,10 @@ const Hamburger = styled.div`
     align-items: center;
     color: #fff;
     gap: 12px;
+    cursor: pointer;
+    @media all and (max-width: 860px) {
+        display: none;
+    }
 `;
 const Left = styled.div`
     display: flex;

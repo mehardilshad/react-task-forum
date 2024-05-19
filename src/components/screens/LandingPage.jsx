@@ -11,6 +11,7 @@ import SubHeader from "./SubHeader";
 function LandingPage() {
     const [scrollDirection, setScrollDirection] = useState("down");
     const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [showSubHeader, setShowSubHeader] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,8 +19,10 @@ function LandingPage() {
                 window.pageYOffset || document.documentElement.scrollTop;
             if (currentScrollTop > lastScrollTop) {
                 setScrollDirection("down");
+                setShowSubHeader(false);
             } else {
                 setScrollDirection("up");
+                setShowSubHeader(currentScrollTop > 0); // Only show if not at the top
             }
             setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
         };
@@ -33,14 +36,12 @@ function LandingPage() {
 
     return (
         <Container>
-            <HeaderWrapper className={scrollDirection === "up" ? "" : "hidden"}>
-                <Header />
-            </HeaderWrapper>
-            <SubHeaderWrapper
-                className={scrollDirection === "up" ? "hidden" : ""}
-            >
-                <SubHeader />
-            </SubHeaderWrapper>
+            <Header />
+            {showSubHeader && (
+                <SubHeaderWrapper>
+                    <SubHeader />
+                </SubHeaderWrapper>
+            )}
             <Spotlight />
             <Avatars />
             <MostSearched />
@@ -54,14 +55,10 @@ export default LandingPage;
 
 const Container = styled.div``;
 
-const HeaderWrapper = styled.div`
-    &.hidden {
-        display: none;
-    }
-`;
-
 const SubHeaderWrapper = styled.div`
-    &.hidden {
-        display: none;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 `;
