@@ -88,3 +88,11 @@ button {
     font-weight: 400;
     src: url(./assets/fonts/Georgial-iight-Italic.woff) format("woff");
 }
+
+@media all and (max-width: 640px) {
+    .wrapper {
+        width: 95%;
+        margin: 0 auto;
+        /* max-width: 1440px; */
+    }
+}

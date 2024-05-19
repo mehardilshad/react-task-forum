@@ -156,6 +156,9 @@ const Container = styled.div`
     height: 300px;
     margin: 0 auto;
     overflow: hidden;
+    @media all and (max-width: 640px) {
+        height: 200px;
+    }
 `;
 
 const BubbleContainer = styled.div`
@@ -179,7 +182,7 @@ const AvatarBubble = styled.div`
     background-color: ${({ id }) => {
         switch (id) {
             case "avatar-1":
-                return "#FFF3EC";
+                return " #B1E2EF";
             case "avatar-2":
                 return "#6FDDFC";
             case "avatar-3":
@@ -191,9 +194,9 @@ const AvatarBubble = styled.div`
             case "avatar-6":
                 return "#FCCC60";
             case "avatar-7":
-                return "#E7FFA6";
+                return "#FFF3EC ";
             case "avatar-8":
-                return "#93CAFF";
+                return "#E7FFA6";
             default:
                 return "";
         }
@@ -203,6 +206,22 @@ const AvatarBubble = styled.div`
     /* overflow: hidden; */
     cursor: move;
     transition: transform 0.5s ease-in-out;
+    @media all and (max-width: 980px) {
+        padding: 20px;
+        width: 120px;
+    }
+    @media all and (max-width: 640px) {
+        padding: 20px;
+        width: 100px;
+    }
+    @media all and (max-width: 480px) {
+        padding: 10px;
+        width: 90px;
+    }
+    @media all and (max-width: 320px) {
+        padding: 5px;
+        width: 70px;
+    }
 `;
 
 const Avatar = styled.img`
@@ -223,6 +242,18 @@ const ChatBubble = styled.div`
         left: unset !important;
         bottom: unset !important;
         width: 50px;
+        @media all and (max-width: 980px) {
+            width: 40px;
+            top: 45px !important;
+        }
+        @media all and (max-width: 640px) {
+            width: 30px;
+            top: 35px !important;
+        }
+        @media all and (max-width: 320px) {
+            width: 20px;
+            top: 25px !important;
+        }
     }
     &.six {
         position: absolute;
@@ -231,6 +262,24 @@ const ChatBubble = styled.div`
         left: unset !important;
         bottom: unset !important;
         width: 80px;
+        @media all and (max-width: 980px) {
+            width: 70px;
+        }
+        @media all and (max-width: 640px) {
+            width: 60px;
+        }
+        @media all and (max-width: 320px) {
+            width: 40px;
+        }
+    }
+    @media all and (max-width: 980px) {
+        width: 70px;
+    }
+    @media all and (max-width: 640px) {
+        width: 60px;
+    }
+    @media all and (max-width: 320px) {
+        width: 40px;
     }
 `;
 const Img = styled.img``;

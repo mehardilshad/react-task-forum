@@ -152,12 +152,27 @@ export default TopicSections;
 const Container = styled.div``;
 const TopicSection = styled.div`
     margin-bottom: 54px;
+    @media all and (max-width: 640px) {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    @media all and (max-width: 360px) {
+        width: 100%;
+    }
 `;
 const Top = styled.div`
     display: flex;
     gap: 8px;
     justify-content: space-between;
     margin-bottom: 23px;
+    @media all and (max-width: 640px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
 `;
 const IconContainer = styled.div`
     &.arrow {
@@ -209,9 +224,11 @@ const InputContainer = styled.div`
     padding: 10px 16px;
     border: 1px solid #0a090e;
     border-radius: 50px;
-
     font-size: 16px;
     margin: 0 auto;
+    @media all and (max-width: 640px) {
+        padding: 5px 10px;
+    }
 `;
 const Input = styled.input`
     border: none;

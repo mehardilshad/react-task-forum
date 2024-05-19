@@ -64,6 +64,12 @@ const Middle = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     gap: 28px;
     margin-bottom: 60px;
+    @media all and (max-width: 1180px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media all and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `;
 const Bottom = styled.div`
     display: flex;
@@ -94,9 +100,12 @@ const Heading = styled.h1`
     span {
         font-family: georgia_italic;
     }
+    @media all and (max-width: 640px) {
+        font-size: 32px;
+    }
 `;
 const CardContainer = styled.div`
-    width: 322px;
+    width: 325px;
     height: 145px;
     background: #161226;
     border-radius: 10px;
@@ -108,12 +117,30 @@ const CardContainer = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
     }
+    @media all and (max-width: 768px) {
+        width: 450px;
+        height: 200px;
+    }
+    @media all and (max-width: 640px) {
+        width: 380px;
+        height: 185px;
+    }
+    @media all and (max-width: 480px) {
+        width: 325px;
+        height: 145px;
+    }
+    @media all and (max-width: 360px) {
+        width: 250px;
+    }
 `;
 const Card = styled.div`
     font-family: georgia;
     font-size: 24px;
     font-weight: 400;
     color: #ffffff;
+    @media all and (max-width: 360px) {
+        font-size: 20px;
+    }
 `;
 const IconContainer = styled.div`
     width: 20px;

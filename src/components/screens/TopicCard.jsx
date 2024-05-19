@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import person from "../../assets/images/person1.svg";
 import chat from "../../assets/images/chat-conversation.svg";
 
 function TopicCard({ topics }) {
     return (
         <>
-            {topics.map((topic, index) => (
-                <Container>
+            {topics.map((topic) => (
+                <Container key={topic.id}>
                     <Left>
                         <ImgContainer>
                             <Img src={topic.Img} />
@@ -45,6 +44,10 @@ const Container = styled.div`
     margin-bottom: 23px;
     border-bottom: 1px solid #17132740;
     padding-bottom: 25px;
+    @media all and (max-width: 640px) {
+        flex-direction: column;
+        gap: 30px;
+    }
 `;
 const AnswerButton = styled.div`
     padding: 12px 32px;
@@ -54,12 +57,21 @@ const AnswerButton = styled.div`
     gap: 4px;
     justify-content: center;
     align-items: center;
+    @media all and (max-width: 1080px) {
+        padding: 12px 20px;
+    }
 `;
 const Answer = styled.div`
     color: #fff9e3;
     font-family: "public_sans";
     font-weight: 500;
     font-size: 14px;
+    @media all and (max-width: 1080px) {
+        font-size: 13px;
+    }
+    @media all and (max-width: 480px) {
+        font-size: 12px;
+    }
 `;
 const ResponseButton = styled.div`
     padding: 12px 20px;
@@ -82,7 +94,22 @@ const Response = styled.div`
 const Left = styled.div`
     display: flex;
     align-items: center;
-    gap: 18px;
+    /* gap: 18px; */
+    @media all and (max-width: 1400px) {
+        width: 60%;
+    }
+    @media all and (max-width: 1080px) {
+        width: 60%;
+    }
+    @media all and (max-width: 768px) {
+        width: 50%;
+    }
+    @media all and (max-width: 640px) {
+        width: 80%;
+    }
+    @media all and (max-width: 480px) {
+        width: 95%;
+    }
 `;
 const Right = styled.div`
     display: flex;
@@ -91,14 +118,21 @@ const Right = styled.div`
 `;
 const ImgContainer = styled.div`
     width: 50px;
+    margin-right: 18px;
 `;
-const Box = styled.div``;
+const Box = styled.div`
+    width: 100%;
+`;
 const Img = styled.img``;
 const Title = styled.h1`
     font-size: 18px;
     color: #0a090e;
     font-family: "public_sans";
     font-weight: 400;
+    @media all and (max-width: 480px) {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
 `;
 const Text = styled.p`
     font-size: 11px;
