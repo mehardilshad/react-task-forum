@@ -5,10 +5,13 @@ import logo from "../../assets/images/logo.svg";
 import dot from "../../assets/images/dot.svg";
 import search from "../../assets/images/search.svg";
 import hamburger from "../../assets/images/hamburger.svg";
+import chat from "../../assets/images/chat-black.svg";
+import gradient from "../../assets/images/gradient.svg";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function Header() {
+function SubHeader() {
     useEffect(() => {
         AOS.init({
             duration: 1000, // Animation duration
@@ -17,35 +20,29 @@ function Header() {
     }, []);
     return (
         <Cover>
-            <Container className="wrapper">
+            <Container>
                 <LeftConatiner data-aos="fade-down">
                     <LogoDiv>
                         <Logo src={logo} alt="logo" />
                     </LogoDiv>
                 </LeftConatiner>
-                <NavContainer data-aos="fade-down">
-                    <List>
-                        <Nav>Learn</Nav>
-                        <DotContainer>
-                            <Dot src={dot} alt="dot" />
-                        </DotContainer>
-                    </List>
-                    <List>
-                        <Nav>How do I participate?</Nav>
-                        <DotContainer>
-                            <Dot src={dot} alt="dot" />
-                        </DotContainer>
-                    </List>
-                    <List>
-                        <Nav>Universities</Nav>
-                        <DotContainer>
-                            <Dot src={dot} alt="dot" />
-                        </DotContainer>
-                    </List>
-                    <List>
-                        <Nav>Corporate</Nav>
-                    </List>
-                </NavContainer>
+                <CenterContainer>
+                    <Hamburger>
+                        <HamburgerContainer>
+                            <Icon src={hamburger} />
+                        </HamburgerContainer>
+                        Menu
+                    </Hamburger>
+                    <GradientContainer>
+                        <Left>
+                            <IconContainer>
+                                <Icon src={chat} alt="chat" />
+                            </IconContainer>
+                            <Text>Discuss CPT</Text>
+                        </Left>
+                    </GradientContainer>
+                </CenterContainer>
+
                 <RightConatiner data-aos="fade-down">
                     <SearchContainer>
                         <SearchIcon>
@@ -57,21 +54,25 @@ function Header() {
                         <JoinButton>Join Program</JoinButton>
                     </ButtonContainer>
                 </RightConatiner>
-                <Hamburger>
-                    <HamburgerContainer>
-                        <Icon src={hamburger} />
-                    </HamburgerContainer>
-                    Menu
-                </Hamburger>
             </Container>
         </Cover>
     );
 }
 
-export default Header;
+export default SubHeader;
 const Cover = styled.div`
-    padding: 20px 0;
-    border-bottom: 1px solid #e6e6e6;
+    padding: 12px 25px;
+    border: 1px solid #e8e8e8;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 999999999;
 `;
 const Container = styled.div`
     display: flex;
@@ -83,28 +84,11 @@ const LogoDiv = styled.div`
     width: 40px;
 `;
 const Logo = styled.img``;
-const NavContainer = styled.div`
+const CenterContainer = styled.div`
     display: flex;
     gap: 14px;
-    @media all and (max-width: 768px) {
-        display: none;
-    }
-`;
-const List = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 14px;
-`;
-const Nav = styled(Link)`
-    font-size: 15px;
-    color: #161226;
-    cursor: pointer;
 `;
 
-const DotContainer = styled.div`
-    width: 6px;
-`;
-const Dot = styled.img``;
 const RightConatiner = styled.div`
     display: flex;
     align-items: center;
@@ -142,6 +126,11 @@ const Icon = styled.img`
     width: 100%;
 `;
 const HamburgerContainer = styled.div``;
+const GradientContainer = styled.div`
+    background: linear-gradient(to right, #0779e6, #f2265c);
+    padding: 3px;
+    border-radius: 30px;
+`;
 const Hamburger = styled.div`
     padding: 12px 16px;
     background: #161226;
@@ -151,8 +140,27 @@ const Hamburger = styled.div`
     align-items: center;
     color: #fff;
     gap: 12px;
-    display: none;
-    @media all and (max-width: 768px) {
-        display: flex;
+`;
+const Left = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+`;
+
+const IconContainer = styled.div`
+    width: 20px;
+`;
+
+const Text = styled.p`
+    font-size: 13px;
+    color: #0a090e;
+    font-family: "public_sans";
+    font-weight: 400;
+    text-transform: uppercase;
+    @media all and (max-width: 480px) {
+        font-size: 10px;
     }
 `;

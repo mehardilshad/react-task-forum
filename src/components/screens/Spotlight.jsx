@@ -1,32 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import search from "../../assets/images/search-white.svg";
 import dot from "../../assets/images/dot.svg";
 import bulb from "../../assets/images/bulb-icon.svg";
 import chat from "../../assets/images/chat-icon.svg";
 import arrow from "../../assets/images/arrow-down.svg";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Spotlight() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Only animate once
+        });
+    }, []);
     return (
         <Container className="wrapper">
             <TopTitle>Home/Forum</TopTitle>
             <MainContent>
-                <Title>FORUM</Title>
-                <Heading>
+                <Title data-aos="fade-left">FORUM</Title>
+                <Heading data-aos="fade-left">
                     Discuss & <span>Evolve</span>{" "}
                 </Heading>
-                <SubHeading>
+                <SubHeading data-aos="fade-left">
                     Engage with Fellow Professionals: Join the Program Forum
                     Discussion!
                 </SubHeading>
-                <InputContainer>
+                <InputContainer data-aos="fade-right">
                     <Input placeholder="Search Topics" />
                     <SearchIcon>
                         <Search src={search} alt="search" />
                     </SearchIcon>
                 </InputContainer>
             </MainContent>
-            <BottomContainer>
+            <BottomContainer data-aos="fade-right">
                 <Left>
                     <IconContainer>
                         <Icon src={chat} alt="chat" />
@@ -80,6 +87,9 @@ const Heading = styled.h1`
     span {
         font-family: georgia_italic;
     }
+    @media all and (max-width: 640px) {
+        font-size: 32px;
+    }
 `;
 const SubHeading = styled.h2`
     color: #0a090e9c;
@@ -87,6 +97,9 @@ const SubHeading = styled.h2`
     font-family: "public_sans";
     font-weight: 400;
     margin-bottom: 23px;
+    @media all and (max-width: 480px) {
+        font-size: 14px;
+    }
 `;
 const InputContainer = styled.div`
     display: flex;
@@ -98,6 +111,17 @@ const InputContainer = styled.div`
     width: 40%;
     font-size: 16px;
     margin: 0 auto;
+    @media all and (max-width: 1280px) {
+        width: 50%;
+    }
+
+    @media all and (max-width: 768px) {
+        width: 70%;
+    }
+    @media all and (max-width: 640px) {
+        width: 90%;
+        padding: 5px 10px;
+    }
 `;
 const Input = styled.input`
     border: none;
@@ -111,6 +135,9 @@ const SearchIcon = styled.div`
     padding: 10px;
     background: #000;
     border-radius: 30px;
+    @media all and (max-width: 480px) {
+        width: 35px;
+    }
 `;
 const Search = styled.img`
     display: block;
@@ -135,6 +162,12 @@ const IconContainer = styled.div`
     &.bulb {
         background: #bedfff;
     }
+    @media all and (max-width: 480px) {
+        width: 35px;
+        background: #fff2f6;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
 `;
 const Icon = styled.img``;
 const Text = styled.p`
@@ -143,6 +176,9 @@ const Text = styled.p`
     font-family: "public_sans";
     font-weight: 400;
     text-transform: uppercase;
+    @media all and (max-width: 480px) {
+        font-size: 10px;
+    }
 `;
 const Left = styled.div`
     display: flex;

@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import TopicSections from "./TopicSection";
 import TopContributor from "./TopContributor";
 import Ebook from "./Ebook";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function LatestDiscussions() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Only animate once
+        });
+    }, []);
     return (
         <Container className="wrapper">
-            <Left>
+            <Left data-aos="fade-right">
                 <TopicSections />
                 <LoadButton>Load More</LoadButton>
             </Left>
-            <Right>
+            <Right data-aos="fade-left">
                 <TopContributor />
                 <Ebook />
             </Right>

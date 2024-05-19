@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import chat from "../../assets/images/chat-icon.svg";
 import gradient from "../../assets/images/gradient.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function MostSearched() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Only animate once
+        });
+    }, []);
     return (
         <Container>
             <Top>
@@ -14,22 +22,22 @@ function MostSearched() {
                 </Heading>
             </Top>
             <Middle>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>Elibility</Card>
                 </CardContainer>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>F1 Visa Students</Card>
                 </CardContainer>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>Universities</Card>
                 </CardContainer>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>Admission</Card>
                 </CardContainer>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>Companies</Card>
                 </CardContainer>
-                <CardContainer>
+                <CardContainer data-aos="fade-up">
                     <Card>Jobs</Card>
                 </CardContainer>
             </Middle>

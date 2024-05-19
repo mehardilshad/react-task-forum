@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import chat from "../../assets/images/chat-conversation.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function TopicCard({ topics }) {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Only animate once
+        });
+    }, []);
     return (
         <>
             {topics.map((topic) => (
-                <Container key={topic.id}>
+                <Container key={topic.id} data-aos="fade-up">
                     <Left>
                         <ImgContainer>
                             <Img src={topic.Img} />
