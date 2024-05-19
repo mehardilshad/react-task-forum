@@ -74,7 +74,7 @@ const Cover = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #fffffff5;
     z-index: 999999999;
     @media all and (max-width: 340px) {
         width: 85%;

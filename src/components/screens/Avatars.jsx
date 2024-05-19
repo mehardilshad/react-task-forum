@@ -24,44 +24,6 @@ function Avatars() {
         avatar_seven,
         avatar_eight,
     ];
-    const topics = [
-        {
-            id: 1,
-            chat: chat_one,
-            Img: avatar_one,
-        },
-        {
-            id: 2,
-            chat: chat_two,
-            Img: avatar_two,
-        },
-        {
-            id: 3,
-            chat: chat_three,
-            Img: avatar_three,
-        },
-        {
-            id: 4,
-            Img: avatar_four,
-        },
-        {
-            id: 5,
-            Img: avatar_five,
-        },
-        {
-            id: 6,
-            chat: chat_six,
-            Img: avatar_six,
-        },
-        {
-            id: 7,
-            Img: avatar_seven,
-        },
-        {
-            id: 8,
-            Img: avatar_eight,
-        },
-    ];
 
     useEffect(() => {
         const avatarBubbles = document.querySelectorAll(".avatar-bubble");

@@ -44,8 +44,8 @@ function LandingPage() {
             )}
             <Spotlight />
             <Avatars />
-            <MostSearched />
             <AvatarBubbles />
+            <MostSearched />
             <LatestDiscussions />
         </Container>
     );
