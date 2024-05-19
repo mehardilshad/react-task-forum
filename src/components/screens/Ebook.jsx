@@ -71,4 +71,8 @@ const LoadButton = styled.button`
     align-items: center;
     font-size: 15px;
     margin: 0 auto;
+    &:hover {
+        background: #fff9e3;
+        color: #000;
+    }
 `;

@@ -8,7 +8,6 @@ import chat from "../../assets/images/chat-black.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import HamburgerMenu from "./HamburgerMenu";
 
 function SubHeader() {
     const [isMenu, setMenu] = useState(false);
@@ -59,7 +58,6 @@ function SubHeader() {
                     </ButtonContainer>
                 </RightConatiner>
             </Container>
-            {/* {isMenu && <HamburgerMenu setMenu={setMenu} />} */}
         </Cover>
     );
 }

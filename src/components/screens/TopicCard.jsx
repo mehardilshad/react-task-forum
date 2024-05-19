@@ -60,27 +60,31 @@ const Container = styled.div`
 const AnswerButton = styled.div`
     padding: 12px 32px;
     background: #0a090e;
+    border: 1px solid #000;
+
     border-radius: 5px;
     display: flex;
     gap: 4px;
     justify-content: center;
     align-items: center;
-    @media all and (max-width: 1080px) {
-        padding: 12px 20px;
-    }
-`;
-const Answer = styled.div`
     color: #fff9e3;
     font-family: "public_sans";
     font-weight: 500;
     font-size: 14px;
     @media all and (max-width: 1080px) {
         font-size: 13px;
+        padding: 12px 20px;
     }
     @media all and (max-width: 480px) {
         font-size: 12px;
     }
+    &:hover {
+        background: #fff9e3;
+        color: #000;
+        border: 1px solid #000;
+    }
 `;
+const Answer = styled.div``;
 const ResponseButton = styled.div`
     padding: 12px 20px;
     background: #f2efff;
